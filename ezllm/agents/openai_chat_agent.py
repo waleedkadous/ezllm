@@ -18,7 +18,7 @@ class OpenAIChatAgent():
                 'content': start_string
             })
 
-    def respond(self, input: str):
+    def process_input(self, input: str):
         self.message_history.append({
             'role': 'user',
             'content': input
@@ -32,13 +32,14 @@ class OpenAIChatAgent():
         words = ''
         for tok in response: 
             delta = tok.choices[0].delta
+            # print(f'Delta is: {delta}')
             if not delta: # End token 
                 self.message_history.append({
                     'role': 'assistant',
                     'content': words
                 })
                 break
-            elif delta['content']:
+            elif 'content' in delta:
                 words += delta['content']
                 yield delta['content'] 
             else: 

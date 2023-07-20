@@ -6,5 +6,6 @@ start_string =  'Hello, I am a helpful assistant. What questions do you have?'
 print(start_string)
 
 ta = AviaryChatAgent(start_string = start_string, 
-                     system_message = 'You are a helpful assistant.')
+                     system_message = 'You are a helpful assistant.', 
+                     model='OpenAssistant/falcon-7b-sft-top1-696')
 StdioPresenter.go(ta)
