@@ -7,5 +7,5 @@ print(start_string)
 
 ta = OpenAIChatAgent(start_string = start_string, 
                      system_message = 'You are a helpful assistant.',
-                     model='meta-llama/Llama-2-13b-chat-hf')
+                     model='meta-llama/Llama-2-70b-chat-hf')
 GradioPresenter.go(ta)
